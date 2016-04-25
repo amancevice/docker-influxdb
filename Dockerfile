@@ -8,7 +8,7 @@ RUN echo as of 2016-04-07 && \
 EXPOSE 8083 8086 8086/udp 8088 8091
 
 # Install InfluxDB
-ENV INFLUXDB_VERSION=0.12.0-1 \
+ENV INFLUXDB_VERSION=0.12.1-1 \
     INFLUXD_CONFIG=/etc/influxdb/influxdb.conf \
     INFLUXD_PATCH=/root/influxdb.conf.patch \
     INFLUX___META___DIR='"/root/.influxdb/meta"' \

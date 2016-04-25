@@ -1,7 +1,5 @@
 # InfluxDB Cluster Setup
 
-*InfluxDB version: `0.12.0`*
-
 A simplistic approach to configuring and starting InfluxDB cluster nodes.
 
 The configuration of InfluxDB on startup is determined by two key environmental variables, `INFLUXD_CONFIG` & `INFLUXD_OPTS`, and the `CMD` passed into the Docker invocation.
