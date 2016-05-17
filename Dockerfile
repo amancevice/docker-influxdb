@@ -1,14 +1,14 @@
 FROM ubuntu:14.04
 MAINTAINER amancevice@cargometrics.com
 
-RUN echo as of 2016-04-07 && \
+RUN echo as of 2016-05-17 && \
     apt-get update && \
     apt-get install -y curl python wget
 
 EXPOSE 8083 8086 8086/udp 8088 8091
 
 # Install InfluxDB
-ENV INFLUXDB_VERSION=0.12.2-1 \
+ENV INFLUXDB_VERSION=0.13.0 \
     INFLUXD_CONFIG=/etc/influxdb/influxdb.conf \
     INFLUXD_PATCH=/root/influxdb.conf.patch \
     INFLUX___META___DIR='"/root/.influxdb/meta"' \
@@ -16,7 +16,7 @@ ENV INFLUXDB_VERSION=0.12.2-1 \
     INFLUX___DATA___WAL_DIR='"/root/.influxdb/wal"' \
     INFLUX___HINTED_HANDOFF___DIR='"/root/.influxdb/hh"' \
     INFLUX___HINTED_HANDOFF___ENABLED=true
-RUN wget https://s3.amazonaws.com/influxdb/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
+RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
     sudo dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && \
     rm /influxdb_${INFLUXDB_VERSION}_amd64.deb && \
     mv ${INFLUXD_CONFIG} ${INFLUXD_CONFIG}.install
